@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!---//****************************************
+        HH    HH  EEEEEEEE  AAAAAAAA  DDDDDD
+        HH    HH  EE        AA    AA  DD    DD
+        HHHHHHHH  EEEEEEEE  AAAAAAAA  DD    DD
+        HH    HH  EE        AA    AA  DD    DD
+        HH    HH  EEEEEEEE  AA    AA  DDDDDD
+    *****************************************//--->
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Chatbot Pizzaria</title>
+        
+        <link rel="stylesheet" href="./../static/css/styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&family=Dancing+Script&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+        <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    </head>
+    
+    <!---//****************************************
+        BBBBBB      OOOO    DDDDDD    YY    YY
+        BB    BB  OO    OO  DD    DD  YY    YY
+        BBBBBB    OO    OO  DD    DD  YYYYYYYY
+        BB    BB  OO    OO  DD    DD     YY
+        BBBBBB      OOOO    DDDDDD       YY
+    *****************************************//--->
+    <body>
+        <div class="container">
+            <header>
+                <h1>Pizzaria Chatbot</h1>
+            </header>
+
+            <main>
+                <ul class="messages">
+                    <li class="chatbot">
+                        <img src="./../static/imgs/chatbot.png">
+                        <div class="msg-chatbot">
+                            <p>Olá! Bem-vindo(a) à Pizzaria! Como posso te ajudar hoje?</p>
+                            
+                            <ol>
+                                <li>1️⃣ Fazer um pedido</li>
+                                <li>2️⃣ Acompanhar um pedido</li>
+                                <li>3️⃣ Tirar uma dúvida</li>
+                            </ol>
+
+                            <p>Digite o número da opção desejada:</p>
+                        </div>
+                    </li>
+                    
+                    <li class="user">
+                        <p>1</p>
+                    </li>
+
+                    <li class="chatbot">
+                        <img src="./../static/imgs/chatbot.png">
+                        <div class="msg-chatbot">
+                            <p>Antes de começarmos, por favor, me diga seu nome para personalizarmos o atendimento.</p>
+                        </div>
+                    </li>
+
+                    <li class="user">
+                        <p>Igor</p>
+                    </li>
+
+                    <li class="chatbot">
+                        <img src="./../static/imgs/chatbot.png">
+                        <div class="msg-chatbot">
+                            <p>Obrigado, Igor! Agora, por favor, informe seu endereço para entrega.</p>
+                        </div>
+                    </li>
+
+                    <li class="user">
+                        <p>Rua Teste, 123. São Paulo - SP</p>
+                    </li>
+
+                    <li class="chatbot">
+                        <img src="./../static/imgs/chatbot.png">
+                        <div class="msg-chatbot">
+                            <p>Perfeito! Agora, me diga seu número de telefone para que possamos entrar em contato, se necessário.</p>
+                        </div>
+                    </li>
+
+                    <li class="user">
+                        <p>+55 11 96739-5427</p>
+                    </li>
+                </ul>
+            </main>
+
+            <footer>
+                <input type="text" id="txtMsgUser" placeholder="Escreva sua mensagem aqui...">
+                <button>
+                    <i class="ph-thin ph-paper-plane-tilt"></i>
+                </button>
+            </footer>
+        </div>
+    </body>
+</html>

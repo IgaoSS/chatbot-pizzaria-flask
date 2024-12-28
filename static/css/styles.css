@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+html, body {
+    height: 100%;
+    font-family: "DM Sans", serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container{
+    background-color: #FFF;
+    width: 80%;
+    height: 90%;
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+header{
+    padding: 2rem;
+    background-color: #4751CC;
+    color: #FFF;
+}
+
+main{
+    padding: 2rem;
+    overflow: auto;
+
+    & .messages{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        & .chatbot{
+            display: flex;
+            gap: 1rem;
+            max-width: 60%;
+            align-self: flex-start;
+
+            & img{
+                width: 4rem;
+                height: 4.5rem;
+            }
+
+            & .msg-chatbot{
+                padding: 1rem;
+                background-color: #dbdbdb;
+                border-radius: 1rem;
+                display: grid;
+                gap: 1rem;
+                font-size: 1.2rem;
+
+                & ol{
+                    list-style: none;
+                }
+            }
+        }
+
+        & .user{
+            max-width: 60%;
+            align-self: flex-end;
+
+            & p{
+                padding: 1rem;
+                font-size: 1.2rem;
+                background-color: #D2D6F9;
+                border-radius: 1rem;
+            }
+        }
+    }
+}
+
+footer{
+    padding: 2rem;
+    border-top: 2px solid #f0f0f0;
+    display: flex;
+    gap: 1rem;
+
+    & input{
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        outline: none;
+        font-size: 1.5rem;
+        color: #7b7b7b;
+    }
+
+    & button{
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5rem;
+        border: none;
+    }
+}
