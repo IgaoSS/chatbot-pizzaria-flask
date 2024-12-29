@@ -16,7 +16,7 @@
         
         <title>Chatbot Pizzaria</title>
         
-        <link rel="stylesheet" href="./../static/css/styles.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&family=Dancing+Script&family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
         <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
@@ -36,7 +36,7 @@
             </header>
 
             <main>
-                <ul class="messages">
+                <ul id="messages">
                     <li class="chatbot">
                         <img src="./../static/imgs/chatbot.png">
                         <div class="msg-chatbot">
@@ -92,11 +92,56 @@
             </main>
 
             <footer>
-                <input type="text" id="txtMsgUser" placeholder="Escreva sua mensagem aqui...">
-                <button>
-                    <i class="ph-thin ph-paper-plane-tilt"></i>
-                </button>
+                <form id="form" action="">
+                    <input type="text" id="txtMsgUser" placeholder="Escreva sua mensagem aqui...">
+                    <button>
+                        <i class="ph-thin ph-paper-plane-tilt"></i>
+                    </button>
+                </form>
             </footer>
         </div>
     </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+    <script>
+        const socket = io.connect(`http://${document.domain}:${location.port}`);
+
+        socket.on('connect', function(){
+            console.log('Webscocket connected.');
+        });
+
+        socket.on('message', function(msg){
+            const ul = document.getElementById('messages');
+            const li = document.createElement('li');
+            const p = document.createElement('p');
+            li.classList.add('user');
+            p.appendChild(document.createTextNode(msg));
+            li.appendChild(p);
+            ul.appendChild(li);
+        });
+
+        socket.on('answer', function(msg){
+            const ul = document.getElementById('messages');
+            const li = document.createElement('li');
+            const div = document.createElement('div');
+            const p = document.createElement('p');
+            const img = document.createElement('img');
+            
+            div.classList.add('msg-chatbot');
+            li.classList.add('chatbot');
+            img.src = "{{ url_for('static', filename='imgs/chatbot.png') }}";
+            
+            p.appendChild(document.createTextNode(msg));
+            div.appendChild(p);
+            li.appendChild(img);
+            li.appendChild(div);
+            ul.appendChild(li);
+        })
+
+        document.getElementById('form').onsubmit = function(){
+            socket.emit('message', document.getElementById('txtMsgUser').value);
+            document.getElementById('txtMsgUser').value = '';
+            return false;
+        }
+    </script>
 </html>
